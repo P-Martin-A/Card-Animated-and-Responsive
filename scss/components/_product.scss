@@ -67,6 +67,8 @@
 
     .logo{
         width: 10rem;
+        z-index: 99;
+        position: relative;
 
         @include mobileTwo{
             width: 5rem;
