@@ -10,7 +10,6 @@ let animationEnd = true
 colors.forEach(c => c.addEventListener('click', ()=>{
     if(!animationEnd) return
     let primary      = c.getAttribute('primary')
-    console.log(primary)
     let color        = c.getAttribute('color')
     let shoe         = document.querySelector(`.shoe[color="${color}"]`)
     let gradient     = document.querySelector(`.gradient[color="${color}"]`)
@@ -52,3 +51,8 @@ window.addEventListener('resize', ()=>{
         shoeBg.style.height = 'height: 40.5rem'
     }
 })
+
+document.addEventListener('DOMContentLoaded', (e)=>{
+    e = new CustomEvent('resize');
+    window.dispatchEvent(e);
+ });
