@@ -1,0 +1,151 @@
+.product{
+    position: relative;
+    width: 50%;
+    padding: 2rem 4rem;
+    height: 40.5rem;
+    box-shadow: -15px 0 35px rgba(0, 0, 0, .1),
+    0 -15px 35px rgba(0, 0, 0, .1),
+    0 15px 35px rgba(0, 0, 0, .1);
+    transition: 1s ease;
+    
+    @include tablet{
+        height: 40rem;
+    }
+
+    @include mobileOne{
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .gradients{
+        @include absoluteGradient();
+
+        .gradient{
+            @include absoluteGradient();
+            z-index: -2;
+
+            &[color="blue"]{
+                @include gradient($colorBluePrimary, $colorBlueSecondary);
+            }
+
+            &[color="red"]{
+                @include gradient($colorRedPrimary, $colorRedSecondary);
+            }
+            
+            &[color="green"]{
+                @include gradient($colorGreenPrimary, $colorGreenSecondary);
+            }
+            
+            &[color="orange"]{
+                @include gradient($colorOrangePrimary, $colorOrangeSecondary);
+            }
+            
+            &[color="black"]{
+                @include gradient($colorBlackPrimary, $colorBlackSecondary);
+            }    
+
+            &.first{
+                z-index: 0;
+                animation: 1s width ease;
+                
+                @keyframes width{
+                    from{
+                        width: 0;
+                    }
+                    
+                    to{
+                        width: 100%;
+                    }
+                }
+           }
+        
+            &.second{
+                z-index: -1;
+            }
+        }
+    }
+
+    .logo{
+        width: 10rem;
+
+        @include mobileTwo{
+            width: 5rem;
+        }
+    }
+
+    .share{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include absoluteBrand(5%, 10%, none, none);
+        width: 4rem;
+        height: 4rem;
+        background: white;
+        color: var(--primary);
+        border-radius: 50%;
+        font-size: 2rem;
+        transition: .5s;
+
+        @include mobileTwo{
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.5rem;
+            top: 8%;
+            right: 8.5%;
+        }
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+
+    .title{
+        @include absoluteBrand(15%, none, none, 9%);
+        text-transform: uppercase;
+        font-size: 20rem;
+        color: white;
+        opacity: .1;
+
+        @include tablet{
+            left: 10%;
+            font-size: 18rem;
+        }
+
+        @include mobileOne{
+            top: 15%;
+            left: 6%;
+        }
+
+        @include mobileTwo{
+            font-size: 10rem;
+        }
+    }
+    
+    .shoe{
+        @include absoluteBrand(none, 0, -10%, none);
+        width: 130%;
+        transform: rotate(-30deg);
+        opacity: 0;
+
+        @include tablet{
+            width: 125%;
+        }
+
+        @include mobileOne{
+            width: 85%;
+            transform: rotate(0deg) translateY(-50%);
+            bottom: -50%;
+            left: -5%;
+        }
+
+        @include mobileTwo{
+            bottom: -60%;
+            left: 5%;
+        }
+        
+        &.show{
+            opacity: 1;
+        }
+    }
+
+}

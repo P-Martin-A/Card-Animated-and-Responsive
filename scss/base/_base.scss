@@ -1,0 +1,54 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --primary: #0136af;
+}
+
+html{
+    font-size: 10px;
+
+    @include mobileThree{
+        font-size: 8px;    
+    }
+    
+    @include mobileFour{
+        font-size: 6px;    
+    }
+
+    body{
+        font-family: $font;
+        background: $bg;
+        
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5rem;
+
+            @include desktop{
+                padding: 0;
+            }
+
+            .card{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80.5rem;
+
+                @include mobileOne{
+                    flex-direction: column;
+                    width: 100%;
+                    box-shadow: 0 0 0 35px rgba(0, 0, 0, .2);   
+                }
+            }
+        }
+
+        a{
+            text-decoration: none;
+        }
+    }
+}
